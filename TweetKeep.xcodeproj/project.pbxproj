@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1BBE70016015B8E7A0F0045 /* libPods-TweetKeep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD8A8D019F1C875FBADBBD6 /* libPods-TweetKeep.a */; };
 		CF68F0CE20F815A800EA1C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0CD20F815A800EA1C84 /* AppDelegate.swift */; };
 		CF68F0D020F815A800EA1C84 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0CF20F815A800EA1C84 /* MainViewController.swift */; };
 		CF68F0D320F815A800EA1C84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF68F0D120F815A800EA1C84 /* Main.storyboard */; };
@@ -15,9 +16,11 @@
 		CF68F0DB20F815A900EA1C84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF68F0D920F815A900EA1C84 /* LaunchScreen.storyboard */; };
 		CF68F0E320F81CDD00EA1C84 /* SearchUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0E220F81CDD00EA1C84 /* SearchUserVC.swift */; };
 		CF68F0E520F8277800EA1C84 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0E420F8277800EA1C84 /* UserCell.swift */; };
+		CF948B4920F8450100EA975E /* NSMutableArray+test.m in Sources */ = {isa = PBXBuildFile; fileRef = CF948B4820F8450100EA975E /* NSMutableArray+test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CDBAA07AFB21AEB7DB74B8DC /* Pods-TweetKeep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweetKeep.release.xcconfig"; path = "Pods/Target Support Files/Pods-TweetKeep/Pods-TweetKeep.release.xcconfig"; sourceTree = "<group>"; };
 		CF68F0CA20F815A800EA1C84 /* TweetKeep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetKeep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF68F0CD20F815A800EA1C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF68F0CF20F815A800EA1C84 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +31,10 @@
 		CF68F0DC20F815A900EA1C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF68F0E220F81CDD00EA1C84 /* SearchUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserVC.swift; sourceTree = "<group>"; };
 		CF68F0E420F8277800EA1C84 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		CF948B4720F8450100EA975E /* NSMutableArray+test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+test.h"; sourceTree = "<group>"; };
+		CF948B4820F8450100EA975E /* NSMutableArray+test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+test.m"; sourceTree = "<group>"; };
+		CFD8A8D019F1C875FBADBBD6 /* libPods-TweetKeep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TweetKeep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30A3D32C58EBF265BE97332 /* Pods-TweetKeep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TweetKeep.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TweetKeep/Pods-TweetKeep.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1BBE70016015B8E7A0F0045 /* libPods-TweetKeep.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +52,12 @@
 		CF68F0C120F815A800EA1C84 = {
 			isa = PBXGroup;
 			children = (
+				CF948B4720F8450100EA975E /* NSMutableArray+test.h */,
+				CF948B4820F8450100EA975E /* NSMutableArray+test.m */,
 				CF68F0CC20F815A800EA1C84 /* TweetKeep */,
 				CF68F0CB20F815A800EA1C84 /* Products */,
+				D4C34305A57CD7285F26C253 /* Pods */,
+				FDCA428B86D305D387F4A2BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +85,23 @@
 			path = TweetKeep;
 			sourceTree = "<group>";
 		};
+		D4C34305A57CD7285F26C253 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F30A3D32C58EBF265BE97332 /* Pods-TweetKeep.debug.xcconfig */,
+				CDBAA07AFB21AEB7DB74B8DC /* Pods-TweetKeep.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FDCA428B86D305D387F4A2BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFD8A8D019F1C875FBADBBD6 /* libPods-TweetKeep.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +109,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF68F0DF20F815A900EA1C84 /* Build configuration list for PBXNativeTarget "TweetKeep" */;
 			buildPhases = (
+				CADC8FFC4F1DEB9876C0D154 /* [CP] Check Pods Manifest.lock */,
 				CF68F0C620F815A800EA1C84 /* Sources */,
 				CF68F0C720F815A800EA1C84 /* Frameworks */,
 				CF68F0C820F815A800EA1C84 /* Resources */,
@@ -105,6 +135,7 @@
 				TargetAttributes = {
 					CF68F0C920F815A800EA1C84 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -139,12 +170,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CADC8FFC4F1DEB9876C0D154 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TweetKeep-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CF68F0C620F815A800EA1C84 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CF68F0D620F815A800EA1C84 /* TweetKeep.xcdatamodeld in Sources */,
+				CF948B4920F8450100EA975E /* NSMutableArray+test.m in Sources */,
 				CF68F0D020F815A800EA1C84 /* MainViewController.swift in Sources */,
 				CF68F0CE20F815A800EA1C84 /* AppDelegate.swift in Sources */,
 				CF68F0E520F8277800EA1C84 /* UserCell.swift in Sources */,
@@ -290,8 +343,10 @@
 		};
 		CF68F0E020F815A900EA1C84 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F30A3D32C58EBF265BE97332 /* Pods-TweetKeep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQ9PY5C74Q;
 				INFOPLIST_FILE = TweetKeep/Info.plist;
@@ -301,6 +356,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashwinmahesh.TweetKeep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TweetKeep-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -308,8 +365,10 @@
 		};
 		CF68F0E120F815A900EA1C84 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDBAA07AFB21AEB7DB74B8DC /* Pods-TweetKeep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQ9PY5C74Q;
 				INFOPLIST_FILE = TweetKeep/Info.plist;
@@ -319,6 +378,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashwinmahesh.TweetKeep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TweetKeep-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

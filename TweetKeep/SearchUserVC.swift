@@ -14,6 +14,7 @@ class SearchUserVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var tableData:[NSDictionary] = []
     var searchName:String?
+    var twitter:STTwitterAPI!
     @IBAction func backPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -22,47 +23,39 @@ class SearchUserVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 129
-        searchName = searchName?.replacingOccurrences(of: " ", with: "")
+//        searchName = searchName?.replacingOccurrences(of: " ", with: "")
+//        TWITTER CODE
+        twitter = STTwitterAPI(oAuthConsumerKey: "RFykEoNMVQhhHa8olba2tUr19", consumerSecret: "dvzlVHmGkaiBmiO2okO1o4Vc4oQKYfuF3Ed1v4bhcz9y2F4ZCU", oauthToken: "833497354116464644-8bYBjlHqFaenWvlYxkhAhcDYNaLUAix", oauthTokenSecret: "Cw4Eg4ShkkrYKD0XGoPLZlbwSJNrNxvnBY55OlKPieoVl")!
+        twitter.verifyCredentials(userSuccessBlock: { (username, userID) in
+            print(username, userID)
+        }, errorBlock: { (error) in
+            print(error)
+        })
+//        twitterPlay()
         searchForUsers()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func searchForUsers(){
-        print("Entering function")
-        var request = "https://api.twitter.com/1.1/users/search.json?q="
-        request.append(searchName!)
-        print(request)
-//        request = "https://twitter.com/Ashwin_m2"
-        let url = URL(string: request)
-        print("Session created, url made")
-        let task = URLSession.shared.dataTask(with: url!){
-            (data, response,error) in
-            if error != nil{
-                DispatchQueue.main.async{
-                    if let errorMessage = error?.localizedDescription{
-                        print(errorMessage)
-                    }
-                    else{
-                        print("There has been an error")
-                    }
-                }
-            }
-            else{
-//                Put Data manipulating code in here
-                do{
-                    if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary{
-                        print(jsonResult)
-                    }
-                }
-                catch{
-                    print(error)
-                }
-//                print(data ?? "no data")
-            }
+    func twitterPlay(){
+        twitter.getUsersSearchQuery("ashwin", page:"1", count:"20", includeEntities: 20, successBlock: { (users) in
+            print(users)
+        }) { (error) in
+            print(error)
         }
-        task.resume()
+//        twitter.getUsersLookup(forScreenName:"a", orUserID: nil, includeEntities: 15, successBlock: { (users) in
+//            print(users)
+//        }) { (error) in
+//            print(error)
+//        }
+    }
+    func searchForUsers(){
+        twitter.getUsersSearchQuery(searchName!, page:"1", count:"30", includeEntities: 30, successBlock: { (users) in
+            print(users)
+        }) { (error) in
+            print(error)
+        }
     }
 }
 extension SearchUserVC:UITableViewDelegate, UITableViewDataSource{

@@ -1,1 +1,3 @@
-pod 'STTwitter'
+target 'TweetKeep' do
+    pod 'STTwitter'
+end
