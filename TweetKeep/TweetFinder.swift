@@ -20,7 +20,7 @@ class TweetFinder: UIViewController {
     var twitterName:String?
     var fullName:String?
     var imagePath:String?
-    
+    var allData:[NSDictionary]=[]
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -31,17 +31,27 @@ class TweetFinder: UIViewController {
         var searchText = myTextField.text!
         if searchText != "" {
             searchText = searchText.lowercased()
-            tweetsUpdated.removeAll()
-            for i in tweets {
-                if i.lowercased().range(of: searchText) != nil {
-                    tweetsUpdated.append(i)
+            var newTableData:[NSDictionary] = []
+            for tweet in allData{
+                let tweetText = tweet["text"] as! String
+                if tweetText.lowercased().range(of: searchText) != nil{
+                    newTableData.append(tweet)
                 }
             }
-        } else {
-            tweetsUpdated = tweets
+            tableData = newTableData
+            tableView.reloadData()
+//            tweetsUpdated.removeAll()
+//            for i in tweets {
+//                if i.lowercased().range(of: searchText) != nil {
+//                    tweetsUpdated.append(i)
+//                }
+//            }
+        }
+        else {
+            getUserInfo(user: userHandle)
         }
         
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     var tweets:[String] = []
@@ -59,8 +69,10 @@ class TweetFinder: UIViewController {
             for tweet in tweets!{
                 let tweetChanged = tweet as! NSDictionary
                 self.tableData.append(tweetChanged)
+//                self.allData.append(tweetChanged)
             }
             self.tableView.reloadData()
+            self.allData = self.tableData
         }) { (error) in
             print(error)
         }
