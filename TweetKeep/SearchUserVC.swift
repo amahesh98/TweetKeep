@@ -44,22 +44,24 @@ class SearchUserVC: UIViewController {
         }) { (error) in
             print(error)
         }
-//        twitter.getUsersLookup(forScreenName:"a", orUserID: nil, includeEntities: 15, successBlock: { (users) in
-//            print(users)
-//        }) { (error) in
-//            print(error)
-//        }
     }
     func searchForUsers(){
-        twitter.getUsersSearchQuery(searchName!, page:"1", count:"20", includeEntities: 20, successBlock: { (users) in
+        twitter.getUsersSearchQuery(searchName!, page:"1", count:"15", includeEntities: 15, successBlock: { (users) in
             let usersChanged = users as! NSArray
             for user in users!{
                 let userChanged = user as! NSDictionary
-                print(userChanged["name"])
+                print(user)
+//                print(userChanged["name"])
+                self.tableData.append(userChanged)
             }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // change 2 to desired number of seconds
+                self.tableView.reloadData()
+            }
+            
         }) { (error) in
             print(error)
         }
+       
     }
 }
 extension SearchUserVC:UITableViewDelegate, UITableViewDataSource{
@@ -69,7 +71,21 @@ extension SearchUserVC:UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
-        
+//        cell.profileImage.image = UIImage(named: )
+        let currentUser = tableData[indexPath.row]
+        if let profilePic = currentUser.value(forKey: "profile_image_url_https") as? String{
+//            print(profilePic)
+            let imageURL = URL(string: profilePic)
+            if let data = try? Data(contentsOf: imageURL!){
+                cell.profileImage.image = UIImage(data: data)
+            }
+        }
+        if let name = currentUser.value(forKey: "name") as? String{
+            cell.handleLabel.text = name+"\n"
+        }
+        if let handle = currentUser.value(forKey: "screen_name") as? String{
+            cell.handleLabel.text?.append(handle)
+        }
         return cell
     }
 }
