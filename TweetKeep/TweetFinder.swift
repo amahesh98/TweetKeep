@@ -89,7 +89,7 @@ class TweetFinder: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: Selector("endEditing:")))
         tableView.dataSource = self
         tableView.delegate = self
         handleLabel.text = "@" + twitterName!
@@ -209,12 +209,12 @@ extension TweetFinder: UITableViewDelegate, UITableViewDataSource {
             if let tweet = tableData[indexPath.row]["text"] as? String{
 //                print(tweet.count)
                 if tweet.count < 50 {
-                    height = 50
+                    height = 100
                     return height
                 } else if tweet.count < 100 {
-                    height = 100
+                    height = 80
                 } else if tweet.count < 150 {
-                    height = 140
+                    height = 120
                 } else if tweet.count < 200 {
                     height = 160
                 } else if tweet.count < 250 {

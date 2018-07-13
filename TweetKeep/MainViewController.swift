@@ -40,6 +40,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         errorLabel.text = ""
         goButton.layer.cornerRadius = 6
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: Selector("endEditing:")))
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

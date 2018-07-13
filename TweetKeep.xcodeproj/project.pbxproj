@@ -19,6 +19,11 @@
 		CF6AACC220F907180010DBD5 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AACC020F907170010DBD5 /* MyTableViewCell.swift */; };
 		CF6AACC320F907180010DBD5 /* TweetFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AACC120F907180010DBD5 /* TweetFinder.swift */; };
 		CF6AACC620F9073B0010DBD5 /* Tweets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6AACC420F9073B0010DBD5 /* Tweets.storyboard */; };
+		CF8FF9EA20F941E7005415EC /* FavoriteTweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8FF9E620F941E6005415EC /* FavoriteTweetsViewController.swift */; };
+		CF8FF9EB20F941E7005415EC /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8FF9E720F941E6005415EC /* TweetCell.swift */; };
+		CF8FF9EC20F941E7005415EC /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8FF9E820F941E7005415EC /* TableCell.swift */; };
+		CF8FF9ED20F941E7005415EC /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8FF9E920F941E7005415EC /* FavoritesViewController.swift */; };
+		CF8FF9F020F941F9005415EC /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8FF9EE20F941F9005415EC /* Favorites.storyboard */; };
 		CF948B4920F8450100EA975E /* NSMutableArray+test.m in Sources */ = {isa = PBXBuildFile; fileRef = CF948B4820F8450100EA975E /* NSMutableArray+test.m */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +42,11 @@
 		CF6AACC020F907170010DBD5 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		CF6AACC120F907180010DBD5 /* TweetFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetFinder.swift; sourceTree = "<group>"; };
 		CF6AACC520F9073B0010DBD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tweets.storyboard; sourceTree = "<group>"; };
+		CF8FF9E620F941E6005415EC /* FavoriteTweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTweetsViewController.swift; sourceTree = "<group>"; };
+		CF8FF9E720F941E6005415EC /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		CF8FF9E820F941E7005415EC /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		CF8FF9E920F941E7005415EC /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		CF8FF9EF20F941F9005415EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TweetKeep/Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		CF948B4720F8450100EA975E /* NSMutableArray+test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+test.h"; sourceTree = "<group>"; };
 		CF948B4820F8450100EA975E /* NSMutableArray+test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+test.m"; sourceTree = "<group>"; };
 		CFD8A8D019F1C875FBADBBD6 /* libPods-TweetKeep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TweetKeep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +88,11 @@
 		CF68F0CC20F815A800EA1C84 /* TweetKeep */ = {
 			isa = PBXGroup;
 			children = (
+				CF8FF9EE20F941F9005415EC /* Favorites.storyboard */,
+				CF8FF9E920F941E7005415EC /* FavoritesViewController.swift */,
+				CF8FF9E620F941E6005415EC /* FavoriteTweetsViewController.swift */,
+				CF8FF9E820F941E7005415EC /* TableCell.swift */,
+				CF8FF9E720F941E6005415EC /* TweetCell.swift */,
 				CF68F0E420F8277800EA1C84 /* UserCell.swift */,
 				CF68F0CF20F815A800EA1C84 /* MainViewController.swift */,
 				CF68F0CD20F815A800EA1C84 /* AppDelegate.swift */,
@@ -175,6 +190,7 @@
 				CF68F0DB20F815A900EA1C84 /* LaunchScreen.storyboard in Resources */,
 				CF68F0D820F815A900EA1C84 /* Assets.xcassets in Resources */,
 				CF68F0D320F815A800EA1C84 /* Main.storyboard in Resources */,
+				CF8FF9F020F941F9005415EC /* Favorites.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +229,10 @@
 				CF68F0CE20F815A800EA1C84 /* AppDelegate.swift in Sources */,
 				CF6AACC320F907180010DBD5 /* TweetFinder.swift in Sources */,
 				CF68F0E520F8277800EA1C84 /* UserCell.swift in Sources */,
+				CF8FF9EC20F941E7005415EC /* TableCell.swift in Sources */,
+				CF8FF9EB20F941E7005415EC /* TweetCell.swift in Sources */,
+				CF8FF9EA20F941E7005415EC /* FavoriteTweetsViewController.swift in Sources */,
+				CF8FF9ED20F941E7005415EC /* FavoritesViewController.swift in Sources */,
 				CF68F0E320F81CDD00EA1C84 /* SearchUserVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +262,14 @@
 				CF6AACC520F9073B0010DBD5 /* Base */,
 			);
 			name = Tweets.storyboard;
+			sourceTree = "<group>";
+		};
+		CF8FF9EE20F941F9005415EC /* Favorites.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF8FF9EF20F941F9005415EC /* Base */,
+			);
+			name = Favorites.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -368,7 +396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQ9PY5C74Q;
+				DEVELOPMENT_TEAM = QL9K6MVRGK;
 				INFOPLIST_FILE = TweetKeep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -390,7 +418,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQ9PY5C74Q;
+				DEVELOPMENT_TEAM = QL9K6MVRGK;
 				INFOPLIST_FILE = TweetKeep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
