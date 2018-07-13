@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="TweetKeep" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,6 +80,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="xqt-Ez-Dry"/>
                     <connections>
                         <outlet property="errorLabel" destination="du8-mG-WrO" id="Ga6-sW-V0Z"/>
                         <outlet property="goButton" destination="L39-ZY-zeE" id="MDa-X6-xAA"/>
@@ -89,7 +90,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
+            <point key="canvasLocation" x="1911.2" y="32.833583208395808"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="QHK-gm-kUu">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="FavoritesStoryboard" id="IfE-hi-W9w" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Cqi-cI-6Yc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oTC-Pt-nSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1605.5999999999999" y="530.73463268365822"/>
         </scene>
         <!--Search UserVC-->
         <scene sceneID="WeU-VJ-Osh">
@@ -204,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sg8-mB-fh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952.79999999999995" y="35.532233883058474"/>
+            <point key="canvasLocation" x="2831.1999999999998" y="35.532233883058474"/>
         </scene>
         <!--Tweets-->
         <scene sceneID="y2y-Ey-rhv">
@@ -212,7 +223,25 @@
                 <viewControllerPlaceholder storyboardIdentifier="TweetStoryboard" storyboardName="Tweets" id="yqo-uD-fcU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zap-cc-Ufh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1647" y="35"/>
+            <point key="canvasLocation" x="3524.8000000000002" y="34.182908545727138"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="AC2-r7-o0U">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="RMQ-mF-aXT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xnc-XH-FZw">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="7yC-RG-BYg"/>
+                        <segue destination="IfE-hi-W9w" kind="relationship" relationship="viewControllers" id="jgH-dW-Ek8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zgo-Eg-r2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="848.79999999999995" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
