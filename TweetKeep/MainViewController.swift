@@ -44,8 +44,12 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! SearchUserVC
-        dest.searchName = usernameField.text
+        if let search = sender as? String{
+            if search == "search"{
+                let dest = segue.destination as! SearchUserVC
+                dest.searchName = usernameField.text
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

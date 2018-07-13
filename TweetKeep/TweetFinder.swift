@@ -237,6 +237,8 @@ extension TweetFinder: TweetCellDelegate {
             newTweet.user = userHandle
             newTweet.created_at = sender.dateLabel.text
             newTweet.liked_at = Date()
+            newTweet.fullName = self.fullName
+            newTweet.imagePath = self.imagePath
     //        addItemToCoreData(name: userName, text: tweetText, image: userPicture)
             currentFavorites.append(newTweet)
             appDelegate.saveContext()

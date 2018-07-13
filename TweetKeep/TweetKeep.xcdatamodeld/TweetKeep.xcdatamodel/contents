@@ -2,6 +2,8 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Tweet" representedClassName="Tweet" syncable="YES" codeGenerationType="class">
         <attribute name="created_at" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="liked_at" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,7 +15,7 @@
         <relationship name="tweets" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tweet" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Tweet" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Tweet" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="User" positionX="-54" positionY="9" width="128" height="105"/>
     </elements>
 </model>

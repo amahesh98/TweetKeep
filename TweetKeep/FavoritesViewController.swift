@@ -9,72 +9,80 @@
 import UIKit
 import CoreData
 
-
 class FavoritesViewController: UIViewController {
     @IBOutlet weak var ListOfFavorites: UITableView!
-    
-    var favorites: [Tweets] = []
-    
+    var favorites: [Tweet] = []
+    var userSelected = ""
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var twitter:STTwitterAPI!
+    var fullNames:[String]!
+    var imagePaths:[String]!
+    
+    @IBOutlet weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        backButton.layer.cornerRadius = 6
         ListOfFavorites.dataSource = self
         ListOfFavorites.delegate = self
         ListOfFavorites.rowHeight = 120
+        
+        twitter = STTwitterAPI(oAuthConsumerKey: "RFykEoNMVQhhHa8olba2tUr19", consumerSecret: "dvzlVHmGkaiBmiO2okO1o4Vc4oQKYfuF3Ed1v4bhcz9y2F4ZCU", oauthToken: "833497354116464644-8bYBjlHqFaenWvlYxkhAhcDYNaLUAix", oauthTokenSecret: "Cw4Eg4ShkkrYKD0XGoPLZlbwSJNrNxvnBY55OlKPieoVl")!
+        twitter.verifyCredentials(userSuccessBlock: { (username, userID) in
+            print(username, userID)
+        }, errorBlock: { (error) in
+            print(error)
+        })
+        fetchUsers()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        ListOfFavorites.reloadData()
+    }
+    
+    @IBAction func backPushed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
     func fetchUsers() {
-        let request:NSFetchRequest<Tweets> = Tweets.fetchRequest()
+        let request:NSFetchRequest<Tweet> = Tweet.fetchRequest()
+        favorites.removeAll()
         do {
-            let result = try context.fetch(request)
-            favorites =  result
+            let tweets = try context.fetch(request)
+            var currentUser = ""
+            for tweet in tweets {
+                if currentUser != tweet.user{
+                    favorites.append(tweet)
+                    currentUser = tweet.user!
+                }
+            }
         } catch {
             print("\(error)")
         }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let indexPath = sender as? IndexPath{
-//            let destination = segue.destination as! FavoriteTweetsViewController
-//            
-//            destination.user = (favorites[indexPath.row].user)!
-//            destination.created_at = "\(favorites[indexPath.row].created_at!)"
-//            destination.indexPath = indexPath
-//        }
-//    }
 }
-
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return favorites.count
-        return 5
+        return favorites.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ListOfFavorites.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
-//        let empty = ""
-//        cell.UserPhoto.image = UIImage(named: "\(favorites[indexPath.row].img_url)")
-//        cell.NameLabel.text = "\(favorites[indexPath.row].user ?? empty) \(favorites[indexPath.row].lastName ?? empty)"
-//        cell.HandleLabel.text = "\(favorites[indexPath.row].text ?? empty)"
-//        cell.LastUpdateLabel.text = "\(favorites[indexPath.row].updated_at ?? empty)"
-        cell.NameLabel.text = "Ismael Lee"
-        cell.HandleLabel.text = "smiley"
-        cell.LastUpdateLabel.text = "01/01/01"
-
+        cell.HandleLabel.text = favorites[indexPath.row].user
+        cell.NameLabel.text = favorites[indexPath.row].fullName
+        let imageURL = URL(string: favorites[indexPath.row].imagePath!)
+        if let data = try? Data(contentsOf: imageURL!){
+            cell.UserPhoto.image = UIImage(data:data)
+        }
+        cell.LastUpdateLabel.text = "07/13/18"
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "TweetsSegue", sender: indexPath)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! FavoriteTweetsViewController
+        destination.userHandle = userSelected
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        userSelected = favorites[indexPath.row].user!
+//        performSegue(withIdentifier: "TweetsSegue", sender: indexPath)
+    }
 }

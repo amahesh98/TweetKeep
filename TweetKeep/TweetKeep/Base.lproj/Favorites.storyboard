@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FavoritesViewController" customModule="TweetKeep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Favorites" id="BYZ-38-t0r" customClass="FavoritesViewController" customModule="TweetKeep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,7 +39,7 @@
                                 <color key="backgroundColor" red="0.086274509803921567" green="0.13333333333333333" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.1120574847" green="0.16071733830000001" blue="0.21002793310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCell" rowHeight="108" id="bMs-Mv-EAp" customClass="TableCell" customModule="TweetKeep" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCell" rowHeight="108" id="bMs-Mv-EAp" customClass="TableCell" customModule="TweetKeep" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bMs-Mv-EAp" id="44P-y2-qlb">
@@ -88,37 +88,60 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1120574847" green="0.16071733830000001" blue="0.21002793310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="HandleLabel" destination="AJQ-3h-wJa" id="LXt-LE-cfa"/>
+                                            <outlet property="HandleLabel" destination="QI6-cN-IlM" id="GnE-dO-iSh"/>
                                             <outlet property="LastUpdateLabel" destination="OSk-jW-9n6" id="ai2-zL-E3J"/>
-                                            <outlet property="NameLabel" destination="QI6-cN-IlM" id="AS2-mq-iKm"/>
+                                            <outlet property="NameLabel" destination="AJQ-3h-wJa" id="Yeh-aq-FgN"/>
                                             <outlet property="UserPhoto" destination="75u-ae-9VZ" id="g78-Ek-ur3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qI-B0-uG0">
+                                <rect key="frame" x="16" y="28" width="75" height="38"/>
+                                <color key="backgroundColor" red="0.1647058824" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="3Z3-WE-Rgn"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="G37-uM-K5z"/>
+                                    <constraint firstAttribute="width" constant="75" id="MtZ-FG-wQy"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="38" id="Ocl-UT-FQG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="Tb1-NB-A7X"/>
+                                    <constraint firstAttribute="height" constant="38" id="gH0-Vx-4TB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="BACK">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="otj-pQ-eBt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.11205748468637466" green="0.16071733832359314" blue="0.21002793312072754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qZb-8p-beA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4wb-vA-z4i"/>
                             <constraint firstItem="v6O-xW-1vP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7G6-m3-Caw"/>
                             <constraint firstAttribute="bottomMargin" secondItem="v6O-xW-1vP" secondAttribute="bottom" id="Art-wC-L9t"/>
+                            <constraint firstItem="0qI-B0-uG0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="D8c-vv-PNF"/>
                             <constraint firstItem="v6O-xW-1vP" firstAttribute="top" secondItem="qZb-8p-beA" secondAttribute="bottom" constant="8" id="N9w-B0-JLy"/>
                             <constraint firstItem="6b7-2u-gDb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="cG5-O2-NAx"/>
+                            <constraint firstItem="0qI-B0-uG0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="ewI-ji-A4U"/>
                             <constraint firstItem="v6O-xW-1vP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ucC-jl-K70"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qZb-8p-beA" secondAttribute="trailing" constant="8" id="vvu-K7-Asd"/>
                             <constraint firstItem="6b7-2u-gDb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z3e-YM-2Kw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="p0C-E6-alz"/>
                     <navigationItem key="navigationItem" id="Gm1-vc-EHQ"/>
                     <connections>
                         <outlet property="ListOfFavorites" destination="v6O-xW-1vP" id="mFZ-N4-l0W"/>
+                        <outlet property="backButton" destination="0qI-B0-uG0" id="Vhh-ix-0OG"/>
                         <segue destination="6F0-kG-UMs" kind="presentation" identifier="TweetsSegue" id="nBr-86-qgP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927.20000000000005" y="-579.76011994002999"/>
+            <point key="canvasLocation" x="1866.4000000000001" y="-579.76011994002999"/>
         </scene>
         <!--Favorite Tweets View Controller-->
         <scene sceneID="ssD-yI-Nvr">
@@ -189,10 +212,10 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cpk-IC-7ul">
                                 <rect key="frame" x="0.0" y="201" width="375" height="466"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.10588235294117647" green="0.16470588235294117" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.1120574847" green="0.16071733830000001" blue="0.21002793310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetCell" rowHeight="100" id="xsO-XZ-FWW" customClass="TweetCell" customModule="TweetKeep" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TweetCell" rowHeight="100" id="xsO-XZ-FWW" customClass="TweetCell" customModule="TweetKeep" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xsO-XZ-FWW" id="hgB-nF-Nd5">
@@ -205,7 +228,7 @@
                                                         <constraint firstAttribute="width" constant="287" id="zxy-G9-Wdc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3a-V7-mGJ">
@@ -265,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gs9-GX-RMf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828" y="-580.65967016491754"/>
+            <point key="canvasLocation" x="2767.1999999999998" y="-580.65967016491754"/>
         </scene>
     </scenes>
     <resources>
