@@ -16,6 +16,8 @@ class FavoritesViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var imagePath:String!
+    var fullName:String!
     var twitter:STTwitterAPI!
     var fullNames:[String]!
     var imagePaths:[String]!
@@ -80,9 +82,13 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! FavoriteTweetsViewController
         destination.userHandle = userSelected
+        destination.imagePath = imagePath
+        destination.fullName = fullName
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        userSelected = favorites[indexPath.row].user!
-//        performSegue(withIdentifier: "TweetsSegue", sender: indexPath)
+        userSelected = favorites[indexPath.row].user!
+        imagePath = favorites[indexPath.row].imagePath!
+        fullName = favorites[indexPath.row].fullName!
+        performSegue(withIdentifier: "TweetsSegue", sender: indexPath)
     }
 }

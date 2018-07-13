@@ -13,27 +13,40 @@ class FavoriteTweetsViewController: UIViewController {
     @IBOutlet weak var FullNameLabel: UILabel!
     @IBOutlet weak var UsernameLabel: UILabel!
     @IBOutlet weak var UserPic_url: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var userHandle = ""
-    var created_at: String = "Ann Known"
-    var user: String = "unknwon"
-    var user_url: String = "Image"
-    var user_id: Int = 1
-    var indexPath: IndexPath?
+    var userHandle: String!
+    var created_at: String!
+    var fullName: String!
+    var imagePath: String!
+    var user_id: Int!
+    var indexPath: IndexPath!
     var tweets: [Tweet] = []
+    var tweetsCurrent: [Tweet] = []
     
+    @IBAction func backPushed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        FullNameLabel.text = user
-        UserPic_url.image = UIImage(named: user_url)
+        UsernameLabel.text = userHandle
+        FullNameLabel.text = fullName
         ListOfTweets.dataSource = self
         ListOfTweets.delegate = self
-        ListOfTweets.rowHeight = 100
-        print(userHandle)
+        ListOfTweets.rowHeight=150
+        let imageURL = URL(string: imagePath)
+        if let data = try? Data(contentsOf: imageURL!){
+            UserPic_url.image = UIImage(data:data)
+        }
+        dateLabel.text = "07/13/18"
+        fetchTweets()
+        getSpecificTweets()
+        ListOfTweets.reloadData()
     }
+    
     @IBAction func BackButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -46,16 +59,25 @@ class FavoriteTweetsViewController: UIViewController {
             print("\(error)")
         }
     }
+    func getSpecificTweets(){
+        for tweet in tweets{
+            if tweet.user == userHandle{
+                tweetsCurrent.append(tweet)
+            }
+        }
+        print("Specific Tweets")
+        print(tweetsCurrent)
+    }
 }
 
 extension FavoriteTweetsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tweetsCurrent.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ListOfTweets.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        cell.indexPath = indexPath
-        cell.TweetLabel.text = "TWEEET"
+//        cell.indexPath = indexPath
+        cell.tweetLabel.text = tweetsCurrent[indexPath.row].text
         return cell
     }
 }

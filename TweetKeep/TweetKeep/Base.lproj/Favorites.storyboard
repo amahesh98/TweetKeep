@@ -202,6 +202,9 @@
                                 <state key="normal" title="BACK">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="backPushed:" destination="6F0-kG-UMs" eventType="touchUpInside" id="CH5-3v-Chi"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69y-n9-t0K">
                                 <rect key="frame" x="146" y="28" width="132" height="36"/>
@@ -222,33 +225,38 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nL5-uq-rGz">
-                                                    <rect key="frame" x="15" y="11" width="287" height="78"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3a-V7-mGJ">
+                                                    <rect key="frame" x="320" y="30" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="287" id="zxy-G9-Wdc"/>
+                                                        <constraint firstAttribute="height" constant="40" id="69y-Vf-cXg"/>
+                                                        <constraint firstAttribute="width" constant="40" id="a40-yr-Hb8"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3a-V7-mGJ">
-                                                    <rect key="frame" x="310" y="25" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="heartfilled"/>
                                                     <connections>
                                                         <action selector="LikedButtonPressed:" destination="xsO-XZ-FWW" eventType="touchUpInside" id="N9K-wS-gcd"/>
                                                     </connections>
                                                 </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wue-nu-xXD">
+                                                    <rect key="frame" x="15" y="11" width="305" height="78"/>
+                                                    <color key="backgroundColor" red="0.10588235294117647" green="0.16470588235294117" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="nL5-uq-rGz" firstAttribute="leading" secondItem="hgB-nF-Nd5" secondAttribute="leadingMargin" id="3Ig-cx-WTd"/>
-                                                <constraint firstItem="nL5-uq-rGz" firstAttribute="top" secondItem="hgB-nF-Nd5" secondAttribute="topMargin" id="fHo-lv-4MO"/>
-                                                <constraint firstItem="nL5-uq-rGz" firstAttribute="bottom" secondItem="hgB-nF-Nd5" secondAttribute="bottomMargin" id="fw4-Zh-gTS"/>
+                                                <constraint firstItem="G3a-V7-mGJ" firstAttribute="centerY" secondItem="hgB-nF-Nd5" secondAttribute="centerY" id="FqL-u0-Gdc"/>
+                                                <constraint firstItem="wue-nu-xXD" firstAttribute="leading" secondItem="hgB-nF-Nd5" secondAttribute="leadingMargin" id="aeV-1I-6yy"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wue-nu-xXD" secondAttribute="bottom" id="kJC-94-AaY"/>
+                                                <constraint firstItem="wue-nu-xXD" firstAttribute="top" secondItem="hgB-nF-Nd5" secondAttribute="topMargin" id="l4g-tA-Ete"/>
+                                                <constraint firstItem="G3a-V7-mGJ" firstAttribute="trailing" secondItem="hgB-nF-Nd5" secondAttribute="trailingMargin" id="qEt-Rn-AfE"/>
+                                                <constraint firstItem="G3a-V7-mGJ" firstAttribute="leading" secondItem="wue-nu-xXD" secondAttribute="trailing" id="t63-L1-8vc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1120574847" green="0.16071733830000001" blue="0.21002793310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="TweetLabel" destination="nL5-uq-rGz" id="Ml2-qT-dh3"/>
+                                            <outlet property="tweetLabel" destination="wue-nu-xXD" id="uB0-AU-EWJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -282,8 +290,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" id="u0u-T5-gP5"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="FullNameLabel" destination="zLf-Q5-yem" id="tKh-WK-BEf"/>
                         <outlet property="ListOfTweets" destination="Cpk-IC-7ul" id="2yy-rv-G84"/>
                         <outlet property="UserPic_url" destination="hvL-Mg-Q8C" id="Jcd-df-llA"/>
+                        <outlet property="UsernameLabel" destination="d0e-rB-uvY" id="qr1-XZ-81b"/>
+                        <outlet property="dateLabel" destination="VlS-bf-E8W" id="JLS-oM-Bbn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gs9-GX-RMf" userLabel="First Responder" sceneMemberID="firstResponder"/>

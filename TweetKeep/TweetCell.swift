@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 
 class TweetCell: UITableViewCell {
-    @IBOutlet weak var TweetLabel: UILabel!
+    
+    @IBOutlet weak var tweetLabel: UITextView!
     @IBOutlet weak var LikedImage: UIImageView!
     
     var liked = true
