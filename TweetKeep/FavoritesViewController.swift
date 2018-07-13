@@ -51,14 +51,28 @@ class FavoritesViewController: UIViewController {
         let request:NSFetchRequest<Tweet> = Tweet.fetchRequest()
         favorites.removeAll()
         do {
+            var users:[String] = []
             let tweets = try context.fetch(request)
-            var currentUser = ""
-            for tweet in tweets {
-                if currentUser != tweet.user{
+            for tweet in tweets{
+                var containsUser = false
+                for user in users{
+                    if user == tweet.user{
+                        containsUser=true
+                        break
+                    }
+                }
+                if containsUser == false{
+                    users.append(tweet.user!)
                     favorites.append(tweet)
-                    currentUser = tweet.user!
                 }
             }
+//            var currentUser = ""
+//            for tweet in tweets {
+//                if currentUser != tweet.user{
+//                    favorites.append(tweet)
+//                    currentUser = tweet.user!
+//                }
+//            }
         } catch {
             print("\(error)")
         }
