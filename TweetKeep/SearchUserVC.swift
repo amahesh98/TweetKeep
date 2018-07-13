@@ -9,10 +9,13 @@
 import UIKit
 
 class SearchUserVC: UIViewController {
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     var tableData:[NSDictionary] = []
     var searchName:String?
     var twitter:STTwitterAPI!
+    var fullName:String?
+    var sendImagePath:String?
     @IBAction func backPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -21,7 +24,7 @@ class SearchUserVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 76
-//        searchName = searchName?.replacingOccurrences(of: " ", with: "")
+        backButton.layer.cornerRadius = 6
 //        TWITTER CODE
         twitter = STTwitterAPI(oAuthConsumerKey: "RFykEoNMVQhhHa8olba2tUr19", consumerSecret: "dvzlVHmGkaiBmiO2okO1o4Vc4oQKYfuF3Ed1v4bhcz9y2F4ZCU", oauthToken: "833497354116464644-8bYBjlHqFaenWvlYxkhAhcDYNaLUAix", oauthTokenSecret: "Cw4Eg4ShkkrYKD0XGoPLZlbwSJNrNxvnBY55OlKPieoVl")!
         twitter.verifyCredentials(userSuccessBlock: { (username, userID) in
@@ -44,14 +47,22 @@ class SearchUserVC: UIViewController {
 //                print(userChanged["name"])
                 self.tableData.append(userChanged)
             }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // change 2 to desired number of seconds
-                self.tableView.reloadData()
-//        }
+            self.tableView.reloadData()
         }) { (error) in
             print(error)
         }
-       
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let handle = sender as? String{
+            let dest = segue.destination as! TweetFinder
+            dest.userHandle = handle
+            dest.twitterName = handle
+            dest.fullName = fullName
+            dest.imagePath = sendImagePath
+        }
+    }
+    
 }
 extension SearchUserVC:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,5 +89,13 @@ extension SearchUserVC:UITableViewDelegate, UITableViewDataSource{
         }
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentUser = tableData[indexPath.row]
+        fullName = currentUser.value(forKey:"name") as! String
+        sendImagePath = currentUser.value(forKey: "profile_image_url_https") as! String
+        if let handle = currentUser.value(forKey: "screen_name") as? String{
+            performSegue(withIdentifier: "ShowTweetsSegue", sender: handle)
+        }
     }
 }

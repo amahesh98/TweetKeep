@@ -82,6 +82,7 @@
                     </view>
                     <connections>
                         <outlet property="errorLabel" destination="du8-mG-WrO" id="Ga6-sW-V0Z"/>
+                        <outlet property="goButton" destination="L39-ZY-zeE" id="MDa-X6-xAA"/>
                         <outlet property="usernameField" destination="f49-8J-dry" id="JSM-CS-iYK"/>
                         <segue destination="qI3-fW-jW3" kind="presentation" identifier="SearchUserSegue" id="jZz-bz-g7u"/>
                     </connections>
@@ -196,12 +197,22 @@
                         <viewLayoutGuide key="safeArea" id="hdw-qT-kGH"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="tjl-gR-X4A" id="Bbx-xj-g6D"/>
                         <outlet property="tableView" destination="v37-yz-Nxa" id="yQb-em-ItQ"/>
+                        <segue destination="yqo-uD-fcU" kind="presentation" identifier="ShowTweetsSegue" id="80w-qO-tQk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sg8-mB-fh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="952.79999999999995" y="35.532233883058474"/>
+        </scene>
+        <!--Tweets-->
+        <scene sceneID="y2y-Ey-rhv">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="TweetStoryboard" storyboardName="Tweets" id="yqo-uD-fcU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zap-cc-Ufh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1647" y="35"/>
         </scene>
     </scenes>
     <resources>

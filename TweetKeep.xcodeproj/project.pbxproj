@@ -16,6 +16,9 @@
 		CF68F0DB20F815A900EA1C84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF68F0D920F815A900EA1C84 /* LaunchScreen.storyboard */; };
 		CF68F0E320F81CDD00EA1C84 /* SearchUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0E220F81CDD00EA1C84 /* SearchUserVC.swift */; };
 		CF68F0E520F8277800EA1C84 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0E420F8277800EA1C84 /* UserCell.swift */; };
+		CF6AACC220F907180010DBD5 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AACC020F907170010DBD5 /* MyTableViewCell.swift */; };
+		CF6AACC320F907180010DBD5 /* TweetFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6AACC120F907180010DBD5 /* TweetFinder.swift */; };
+		CF6AACC620F9073B0010DBD5 /* Tweets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF6AACC420F9073B0010DBD5 /* Tweets.storyboard */; };
 		CF948B4920F8450100EA975E /* NSMutableArray+test.m in Sources */ = {isa = PBXBuildFile; fileRef = CF948B4820F8450100EA975E /* NSMutableArray+test.m */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,9 @@
 		CF68F0DC20F815A900EA1C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF68F0E220F81CDD00EA1C84 /* SearchUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserVC.swift; sourceTree = "<group>"; };
 		CF68F0E420F8277800EA1C84 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		CF6AACC020F907170010DBD5 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		CF6AACC120F907180010DBD5 /* TweetFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetFinder.swift; sourceTree = "<group>"; };
+		CF6AACC520F9073B0010DBD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tweets.storyboard; sourceTree = "<group>"; };
 		CF948B4720F8450100EA975E /* NSMutableArray+test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+test.h"; sourceTree = "<group>"; };
 		CF948B4820F8450100EA975E /* NSMutableArray+test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+test.m"; sourceTree = "<group>"; };
 		CFD8A8D019F1C875FBADBBD6 /* libPods-TweetKeep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TweetKeep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +83,9 @@
 				CF68F0CD20F815A800EA1C84 /* AppDelegate.swift */,
 				CF68F0D120F815A800EA1C84 /* Main.storyboard */,
 				CF68F0D720F815A900EA1C84 /* Assets.xcassets */,
+				CF6AACC020F907170010DBD5 /* MyTableViewCell.swift */,
+				CF6AACC120F907180010DBD5 /* TweetFinder.swift */,
+				CF6AACC420F9073B0010DBD5 /* Tweets.storyboard */,
 				CF68F0E220F81CDD00EA1C84 /* SearchUserVC.swift */,
 				CF68F0D920F815A900EA1C84 /* LaunchScreen.storyboard */,
 				CF68F0DC20F815A900EA1C84 /* Info.plist */,
@@ -162,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6AACC620F9073B0010DBD5 /* Tweets.storyboard in Resources */,
 				CF68F0DB20F815A900EA1C84 /* LaunchScreen.storyboard in Resources */,
 				CF68F0D820F815A900EA1C84 /* Assets.xcassets in Resources */,
 				CF68F0D320F815A800EA1C84 /* Main.storyboard in Resources */,
@@ -196,10 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6AACC220F907180010DBD5 /* MyTableViewCell.swift in Sources */,
 				CF68F0D620F815A800EA1C84 /* TweetKeep.xcdatamodeld in Sources */,
 				CF948B4920F8450100EA975E /* NSMutableArray+test.m in Sources */,
 				CF68F0D020F815A800EA1C84 /* MainViewController.swift in Sources */,
 				CF68F0CE20F815A800EA1C84 /* AppDelegate.swift in Sources */,
+				CF6AACC320F907180010DBD5 /* TweetFinder.swift in Sources */,
 				CF68F0E520F8277800EA1C84 /* UserCell.swift in Sources */,
 				CF68F0E320F81CDD00EA1C84 /* SearchUserVC.swift in Sources */,
 			);
@@ -222,6 +234,14 @@
 				CF68F0DA20F815A900EA1C84 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CF6AACC420F9073B0010DBD5 /* Tweets.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF6AACC520F9073B0010DBD5 /* Base */,
+			);
+			name = Tweets.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var usernameField: UITextField!
     @IBAction func goPressed(_ sender: UIButton) {
@@ -38,6 +39,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.text = ""
+        goButton.layer.cornerRadius = 6
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
