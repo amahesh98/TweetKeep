@@ -14,6 +14,7 @@ protocol TweetCellDelegate {
 
 class MyTableViewCell: UITableViewCell {
     
+    var favorited = false
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var favoriteLabel: UIButton!
     @IBOutlet weak var myTextView: UITextView!

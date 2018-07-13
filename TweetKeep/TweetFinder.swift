@@ -21,6 +21,7 @@ class TweetFinder: UIViewController {
     var fullName:String?
     var imagePath:String?
     var allData:[NSDictionary]=[]
+    var currentFavorites:[Tweet] = []
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -40,18 +41,10 @@ class TweetFinder: UIViewController {
             }
             tableData = newTableData
             tableView.reloadData()
-//            tweetsUpdated.removeAll()
-//            for i in tweets {
-//                if i.lowercased().range(of: searchText) != nil {
-//                    tweetsUpdated.append(i)
-//                }
-//            }
         }
         else {
             getUserInfo(user: userHandle)
         }
-        
-//        tableView.reloadData()
     }
     
     var tweets:[String] = []
@@ -64,12 +57,11 @@ class TweetFinder: UIViewController {
     
     //creating function that gets the info
     func getUserInfo(user: String) {
-        twitter.getUserTimeline(withScreenName: user, count: 100, successBlock: { (tweets) in
+        twitter.getUserTimeline(withScreenName: user, count: 200, successBlock: { (tweets) in
             let tweetsChanged = tweets as! NSArray
             for tweet in tweets!{
                 let tweetChanged = tweet as! NSDictionary
                 self.tableData.append(tweetChanged)
-//                self.allData.append(tweetChanged)
             }
             self.tableView.reloadData()
             self.allData = self.tableData
@@ -95,6 +87,7 @@ class TweetFinder: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         tableView.dataSource = self
         tableView.delegate = self
         handleLabel.text = "@" + twitterName!
@@ -104,8 +97,6 @@ class TweetFinder: UIViewController {
         if let data = try? Data(contentsOf:imageURL!){
             userImageView.image = UIImage(data:data)
         }
-//        tableView.rowHeight = 180
-         // set to whatever your "average" cell height is
         searchButton.layer.cornerRadius = 6
         backButton.layer.cornerRadius = 6
         twitter = STTwitterAPI(oAuthConsumerKey: "RFykEoNMVQhhHa8olba2tUr19", consumerSecret: "dvzlVHmGkaiBmiO2okO1o4Vc4oQKYfuF3Ed1v4bhcz9y2F4ZCU", oauthToken: "833497354116464644-8bYBjlHqFaenWvlYxkhAhcDYNaLUAix", oauthTokenSecret: "Cw4Eg4ShkkrYKD0XGoPLZlbwSJNrNxvnBY55OlKPieoVl")!
@@ -115,21 +106,26 @@ class TweetFinder: UIViewController {
             print(error)
         })
         getUserInfo(user: userHandle)
+        currentFavorites = fetchAll()
+        print(currentFavorites.count)
     }
     
     //ADDING CORE DATA
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-//    var tableData: [TweetEntity] = []
-    
-//    func addItemToCoreData(name: String, text: String, image: String){
-//        let tweetToSave = NSEntityDescription.insertNewObject(forEntityName: "TweetEntity", into: context) as! TweetEntity
-//        tweetToSave.text = text
-//        tweetToSave.image = image
-//        tweetToSave.name = name
-//        appDelegate.saveContext()
-//    }
+    func fetchAll()->[Tweet]{
+        let request:NSFetchRequest<Tweet> = Tweet.fetchRequest()
+        do{
+            let tweets = try context.fetch(request)
+            return tweets
+        }
+        catch{
+            print(error)
+        }
+        var emptyList:[Tweet] = []
+        return emptyList
+    }
 
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "BucketList")
@@ -174,6 +170,21 @@ extension TweetFinder: UITableViewDelegate, UITableViewDataSource {
 //            print("TweetText")
 //            print(tweetText)
             cell.myTextView.text = tweetText
+            
+            var alreadyFav = false
+            for tweet in currentFavorites{
+                if tweet.text == tweetText{
+                    alreadyFav = true
+                    break
+                }
+            }
+            if alreadyFav{
+                cell.favoriteLabel.setBackgroundImage(UIImage(named: "heartfilled"), for: .normal)
+                cell.favorited = true
+            }
+            else{
+                cell.favoriteLabel.setBackgroundImage(UIImage(named: "heartempty"), for: .normal)
+            }
         }
         if let date = currentTweet.value(forKey: "created_at") as? String{
             let dateSplit = date.split(separator: " ")
@@ -183,6 +194,10 @@ extension TweetFinder: UITableViewDelegate, UITableViewDataSource {
             let concatDate = month + " " + day + ", " + year
             cell.dateLabel.text = concatDate
         }
+        
+        
+        
+        
         cell.delegate = self
         
         return cell
@@ -213,11 +228,31 @@ extension TweetFinder: UITableViewDelegate, UITableViewDataSource {
 
 extension TweetFinder: TweetCellDelegate {
     func favoritePressed(sender: MyTableViewCell) {
-        let indexPath = tableView.indexPath(for: sender)
-        let tweetText = tweetsUpdated[(indexPath?.row)!]
-//        addItemToCoreData(name: userName, text: tweetText, image: userPicture)
-        appDelegate.saveContext()
-        sender.favoriteLabel.setBackgroundImage(UIImage(named: "heartfilled"), for: .normal)
+        if sender.favorited == false{
+            let indexPath = tableView.indexPath(for: sender)
+            let newTweet = Tweet(context:context)
+            newTweet.text = tableData[indexPath!.row]["text"] as! String
+            newTweet.poster = userHandle
+    //        addItemToCoreData(name: userName, text: tweetText, image: userPicture)
+            currentFavorites.append(newTweet)
+            appDelegate.saveContext()
+            sender.favoriteLabel.setBackgroundImage(UIImage(named: "heartfilled"), for: .normal)
+            sender.favorited = true
+        }
+        else{
+            for i in 0..<currentFavorites.count{
+                let tweet = currentFavorites[i]
+                if tweet.text == sender.myTextView.text {
+                    currentFavorites.remove(at: i)
+                    context.delete(tweet)
+                    appDelegate.saveContext()
+//                    print("Successfully deleted")
+                    break
+                }
+            }
+            sender.favoriteLabel.setBackgroundImage(UIImage(named: "heartempty"), for: .normal)
+            sender.favorited = false
+        }
     }
 }
 
