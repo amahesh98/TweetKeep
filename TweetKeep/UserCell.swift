@@ -12,6 +12,8 @@ class UserCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var handleLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    var twitterHandle:String?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -9,8 +9,6 @@
 import UIKit
 
 class SearchUserVC: UIViewController {
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var tableData:[NSDictionary] = []
     var searchName:String?
@@ -22,7 +20,7 @@ class SearchUserVC: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 129
+        tableView.rowHeight = 76
 //        searchName = searchName?.replacingOccurrences(of: " ", with: "")
 //        TWITTER CODE
         twitter = STTwitterAPI(oAuthConsumerKey: "RFykEoNMVQhhHa8olba2tUr19", consumerSecret: "dvzlVHmGkaiBmiO2okO1o4Vc4oQKYfuF3Ed1v4bhcz9y2F4ZCU", oauthToken: "833497354116464644-8bYBjlHqFaenWvlYxkhAhcDYNaLUAix", oauthTokenSecret: "Cw4Eg4ShkkrYKD0XGoPLZlbwSJNrNxvnBY55OlKPieoVl")!
@@ -31,33 +29,24 @@ class SearchUserVC: UIViewController {
         }, errorBlock: { (error) in
             print(error)
         })
-//        twitterPlay()
         searchForUsers()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func twitterPlay(){
-        twitter.getUsersSearchQuery("ashwin", page:"1", count:"15", includeEntities: 15, successBlock: { (users) in
-            print(users)
-        }) { (error) in
-            print(error)
-        }
-    }
     func searchForUsers(){
-        twitter.getUsersSearchQuery(searchName!, page:"1", count:"15", includeEntities: 15, successBlock: { (users) in
+        twitter.getUsersSearchQuery(searchName!, page:"1", count:"12", includeEntities: 12, successBlock: { (users) in
             let usersChanged = users as! NSArray
             for user in users!{
                 let userChanged = user as! NSDictionary
-                print(user)
+//                print(user)
 //                print(userChanged["name"])
                 self.tableData.append(userChanged)
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // change 2 to desired number of seconds
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // change 2 to desired number of seconds
                 self.tableView.reloadData()
-            }
-            
+//        }
         }) { (error) in
             print(error)
         }
@@ -81,11 +70,13 @@ extension SearchUserVC:UITableViewDelegate, UITableViewDataSource{
             }
         }
         if let name = currentUser.value(forKey: "name") as? String{
-            cell.handleLabel.text = name+"\n"
+            cell.nameLabel.text = name
         }
         if let handle = currentUser.value(forKey: "screen_name") as? String{
-            cell.handleLabel.text?.append(handle)
+            cell.handleLabel.text = handle
+            cell.twitterHandle = handle
         }
+        
         return cell
     }
 }
