@@ -43,7 +43,9 @@ class TweetFinder: UIViewController {
             tableView.reloadData()
         }
         else {
-            getUserInfo(user: userHandle)
+//            getUserInfo(user: userHandle)
+            tableData = allData
+            tableView.reloadData()
         }
     }
     
@@ -107,7 +109,7 @@ class TweetFinder: UIViewController {
         })
         getUserInfo(user: userHandle)
         currentFavorites = fetchAll()
-        print(currentFavorites.count)
+//        print(currentFavorites.count)
     }
     
     //ADDING CORE DATA
@@ -232,7 +234,9 @@ extension TweetFinder: TweetCellDelegate {
             let indexPath = tableView.indexPath(for: sender)
             let newTweet = Tweet(context:context)
             newTweet.text = tableData[indexPath!.row]["text"] as! String
-            newTweet.poster = userHandle
+            newTweet.user = userHandle
+            newTweet.created_at = sender.dateLabel.text
+            newTweet.liked_at = Date()
     //        addItemToCoreData(name: userName, text: tweetText, image: userPicture)
             currentFavorites.append(newTweet)
             appDelegate.saveContext()
