@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		CF68F0CE20F815A800EA1C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0CD20F815A800EA1C84 /* AppDelegate.swift */; };
-		CF68F0D020F815A800EA1C84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0CF20F815A800EA1C84 /* ViewController.swift */; };
+		CF68F0D020F815A800EA1C84 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0CF20F815A800EA1C84 /* MainViewController.swift */; };
 		CF68F0D320F815A800EA1C84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF68F0D120F815A800EA1C84 /* Main.storyboard */; };
 		CF68F0D620F815A800EA1C84 /* TweetKeep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0D420F815A800EA1C84 /* TweetKeep.xcdatamodeld */; };
 		CF68F0D820F815A900EA1C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF68F0D720F815A900EA1C84 /* Assets.xcassets */; };
 		CF68F0DB20F815A900EA1C84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF68F0D920F815A900EA1C84 /* LaunchScreen.storyboard */; };
+		CF68F0E320F81CDD00EA1C84 /* SearchUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0E220F81CDD00EA1C84 /* SearchUserVC.swift */; };
+		CF68F0E520F8277800EA1C84 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF68F0E420F8277800EA1C84 /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CF68F0CA20F815A800EA1C84 /* TweetKeep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetKeep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF68F0CD20F815A800EA1C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF68F0CF20F815A800EA1C84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF68F0CF20F815A800EA1C84 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CF68F0D220F815A800EA1C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF68F0D520F815A800EA1C84 /* TweetKeep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TweetKeep.xcdatamodel; sourceTree = "<group>"; };
 		CF68F0D720F815A900EA1C84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF68F0DA20F815A900EA1C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF68F0DC20F815A900EA1C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF68F0E220F81CDD00EA1C84 /* SearchUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserVC.swift; sourceTree = "<group>"; };
+		CF68F0E420F8277800EA1C84 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 		CF68F0CC20F815A800EA1C84 /* TweetKeep */ = {
 			isa = PBXGroup;
 			children = (
+				CF68F0E420F8277800EA1C84 /* UserCell.swift */,
+				CF68F0CF20F815A800EA1C84 /* MainViewController.swift */,
 				CF68F0CD20F815A800EA1C84 /* AppDelegate.swift */,
-				CF68F0CF20F815A800EA1C84 /* ViewController.swift */,
 				CF68F0D120F815A800EA1C84 /* Main.storyboard */,
 				CF68F0D720F815A900EA1C84 /* Assets.xcassets */,
+				CF68F0E220F81CDD00EA1C84 /* SearchUserVC.swift */,
 				CF68F0D920F815A900EA1C84 /* LaunchScreen.storyboard */,
 				CF68F0DC20F815A900EA1C84 /* Info.plist */,
 				CF68F0D420F815A800EA1C84 /* TweetKeep.xcdatamodeld */,
@@ -139,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF68F0D620F815A800EA1C84 /* TweetKeep.xcdatamodeld in Sources */,
-				CF68F0D020F815A800EA1C84 /* ViewController.swift in Sources */,
+				CF68F0D020F815A800EA1C84 /* MainViewController.swift in Sources */,
 				CF68F0CE20F815A800EA1C84 /* AppDelegate.swift in Sources */,
+				CF68F0E520F8277800EA1C84 /* UserCell.swift in Sources */,
+				CF68F0E320F81CDD00EA1C84 /* SearchUserVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
