@@ -39,7 +39,7 @@ class SearchUserVC: UIViewController {
         super.didReceiveMemoryWarning()
     }
     func twitterPlay(){
-        twitter.getUsersSearchQuery("ashwin", page:"1", count:"20", includeEntities: 20, successBlock: { (users) in
+        twitter.getUsersSearchQuery("ashwin", page:"1", count:"15", includeEntities: 15, successBlock: { (users) in
             print(users)
         }) { (error) in
             print(error)
@@ -51,8 +51,12 @@ class SearchUserVC: UIViewController {
 //        }
     }
     func searchForUsers(){
-        twitter.getUsersSearchQuery(searchName!, page:"1", count:"30", includeEntities: 30, successBlock: { (users) in
-            print(users)
+        twitter.getUsersSearchQuery(searchName!, page:"1", count:"20", includeEntities: 20, successBlock: { (users) in
+            let usersChanged = users as! NSArray
+            for user in users!{
+                let userChanged = user as! NSDictionary
+                print(userChanged["name"])
+            }
         }) { (error) in
             print(error)
         }
