@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 class FavoriteTweetsViewController: UIViewController {
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var ListOfTweets: UITableView!
     @IBOutlet weak var FullNameLabel: UILabel!
     @IBOutlet weak var UsernameLabel: UILabel!
@@ -34,6 +35,7 @@ class FavoriteTweetsViewController: UIViewController {
         super.viewDidLoad()
         UsernameLabel.text = userHandle
         FullNameLabel.text = fullName
+        backButton.layer.cornerRadius = 6
         ListOfTweets.dataSource = self
         ListOfTweets.delegate = self
         ListOfTweets.rowHeight=150

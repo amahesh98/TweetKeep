@@ -123,11 +123,11 @@
                             <constraint firstAttribute="bottomMargin" secondItem="v6O-xW-1vP" secondAttribute="bottom" id="Art-wC-L9t"/>
                             <constraint firstItem="0qI-B0-uG0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="D8c-vv-PNF"/>
                             <constraint firstItem="v6O-xW-1vP" firstAttribute="top" secondItem="qZb-8p-beA" secondAttribute="bottom" constant="8" id="N9w-B0-JLy"/>
+                            <constraint firstItem="6b7-2u-gDb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b52-vw-4OB"/>
                             <constraint firstItem="6b7-2u-gDb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="cG5-O2-NAx"/>
                             <constraint firstItem="0qI-B0-uG0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="ewI-ji-A4U"/>
                             <constraint firstItem="v6O-xW-1vP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ucC-jl-K70"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qZb-8p-beA" secondAttribute="trailing" constant="8" id="vvu-K7-Asd"/>
-                            <constraint firstItem="6b7-2u-gDb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z3e-YM-2Kw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -206,9 +206,8 @@
                                     <action selector="backPushed:" destination="6F0-kG-UMs" eventType="touchUpInside" id="CH5-3v-Chi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69y-n9-t0K">
-                                <rect key="frame" x="146" y="28" width="132" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69y-n9-t0K">
+                                <rect key="frame" x="121.5" y="28" width="132" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -266,6 +265,7 @@
                         <constraints>
                             <constraint firstItem="Cpk-IC-7ul" firstAttribute="leading" secondItem="otN-za-6WB" secondAttribute="leading" id="FY0-jm-tUM"/>
                             <constraint firstItem="d0e-rB-uvY" firstAttribute="leading" secondItem="hvL-Mg-Q8C" secondAttribute="trailing" constant="16" id="LV8-dn-grf"/>
+                            <constraint firstItem="69y-n9-t0K" firstAttribute="centerX" secondItem="Abf-nY-v4j" secondAttribute="centerX" id="M7J-Xg-4GQ"/>
                             <constraint firstItem="Cpk-IC-7ul" firstAttribute="trailing" secondItem="otN-za-6WB" secondAttribute="trailing" id="O0y-pZ-ZGH"/>
                             <constraint firstItem="A4V-29-oZ7" firstAttribute="leading" secondItem="otN-za-6WB" secondAttribute="leading" constant="16" id="PG6-be-xUq"/>
                             <constraint firstItem="otN-za-6WB" firstAttribute="trailing" secondItem="zLf-Q5-yem" secondAttribute="trailing" id="QGh-BG-GFs"/>
@@ -273,6 +273,7 @@
                             <constraint firstItem="hvL-Mg-Q8C" firstAttribute="leading" secondItem="otN-za-6WB" secondAttribute="leading" constant="16" id="Udm-2R-iUE"/>
                             <constraint firstItem="Cpk-IC-7ul" firstAttribute="top" secondItem="hvL-Mg-Q8C" secondAttribute="bottom" constant="8" id="WRG-A6-WN5"/>
                             <constraint firstItem="MHk-02-Vcu" firstAttribute="top" secondItem="otN-za-6WB" secondAttribute="top" id="aFB-h0-1j5"/>
+                            <constraint firstItem="69y-n9-t0K" firstAttribute="top" secondItem="otN-za-6WB" secondAttribute="top" constant="8" id="cjc-jf-3X3"/>
                             <constraint firstItem="VlS-bf-E8W" firstAttribute="leading" secondItem="hvL-Mg-Q8C" secondAttribute="trailing" constant="16" id="cqy-OF-hog"/>
                             <constraint firstItem="d0e-rB-uvY" firstAttribute="top" secondItem="MHk-02-Vcu" secondAttribute="bottom" constant="8" id="fV3-iG-8Zw"/>
                             <constraint firstItem="A4V-29-oZ7" firstAttribute="top" secondItem="otN-za-6WB" secondAttribute="top" constant="8" id="i3v-ED-HVz"/>
@@ -294,6 +295,7 @@
                         <outlet property="ListOfTweets" destination="Cpk-IC-7ul" id="2yy-rv-G84"/>
                         <outlet property="UserPic_url" destination="hvL-Mg-Q8C" id="Jcd-df-llA"/>
                         <outlet property="UsernameLabel" destination="d0e-rB-uvY" id="qr1-XZ-81b"/>
+                        <outlet property="backButton" destination="A4V-29-oZ7" id="doi-Jy-dQW"/>
                         <outlet property="dateLabel" destination="VlS-bf-E8W" id="JLS-oM-Bbn"/>
                     </connections>
                 </viewController>
