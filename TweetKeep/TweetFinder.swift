@@ -52,7 +52,7 @@ class TweetFinder: UIViewController {
     var tweets:[String] = []
     var tableData:[NSDictionary] = []
     var tweetsUpdated:[String] = []
-    var userHandle = "realDonaldTrump"
+    var userHandle = ""
     
     var userName = ""
     var userPicture = ""
