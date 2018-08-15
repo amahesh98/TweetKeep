@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter Logo" translatesAutoresizingMaskIntoConstraints="NO" id="3bm-IW-ZuR">
-                                <rect key="frame" x="67" y="120" width="240" height="240"/>
+                                <rect key="frame" x="67.5" y="120" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="7O6-hi-lSL"/>
                                     <constraint firstAttribute="height" constant="240" id="JLT-Xv-DzE"/>
@@ -48,6 +48,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Twitter Logo" width="400" height="400"/>
+        <image name="Twitter Logo" width="1451" height="1302"/>
     </resources>
 </document>

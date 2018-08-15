@@ -6,3 +6,5 @@ A table will get populated with the top results. Once you select a user, you wil
 ![Screenshot](AppImages/1.png) ![Screenshot](AppImages/2.png)
 ![Screenshot](AppImages/3.png) ![Screenshot](AppImages/4.png)
 ![Screenshot](AppImages/5.png) ![Screenshot](AppImages/6.png)
+
+<h2>Created by Ashwin Mahesh, Andrew Skinner, Carlo Del Mundo</h2>
